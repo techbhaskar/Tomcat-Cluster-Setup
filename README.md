@@ -22,19 +22,20 @@ If it is a 2.4, choose one of them depending on if you prefer 64 or 32-bit versi
 
 Modify httpd.conf
 Add the required configuartions parameters to the httpd.conf file , which available under C:\Apache\conf\
-LoadModule jk_module modules/mod_jk.so
-JkWorkersFile conf/workers.properties
-#JkShmFile logs/mod_jk.shm
-JkLogLevel info
-JkLogFile logs/mod_jk.log
-JkMount /Manager_GTW/* lb
-
-<Location /jkmanager/>
-JkMount jkstatus
-Order deny, allow
-Deny from all
-Allow from 127.0.0.1
-</Location>
+<br/>
+LoadModule jk_module modules/mod_jk.so<br/>
+JkWorkersFile conf/workers.properties<br/>
+#JkShmFile logs/mod_jk.shm<br/>
+JkLogLevel info<br/>
+JkLogFile logs/mod_jk.log<br/>
+JkMount /Manager_GTW/* lb<br/>
+<br/>
+<Location /jkmanager/><br/>
+JkMount jkstatus<br/>
+Order deny, allow<br/>
+Deny from all<br/>
+Allow from 127.0.0.1<br/>
+</Location><br/>
 Download Tomcat server
 Now we have to create two web servers in our local system try to download the Tomcat8.5 or Tomcat 9.0 from the below links.
 For Tomcat9.0.x
@@ -100,30 +101,31 @@ Cluster2\conf\server.xml
 Add workers.properties
 Now move Apache HTTP server
 Create workers.properties file under the conf folder, like C:\Apache\conf\ workers.properties
-Note: Try to verify the worker1 and worker2 ajp1.3 port numbers from the server.xml files from both culster1 nad cluster2
-#Set properties for worker19 (ajp13)
-worker.list=lb
-
-worker.worker1.host=localhost
-worker.worker1.port=8009
-worker.worker1.type=ajp13
-#worker.worker1.lbfactor=1
-
-worker.worker2.host=localhost
-worker.worker2.port=8109
-worker.worker2.type=ajp13
-
-worker.lb.type=lb
-worker.lb.balance_workers=worker1,worker2
-
-# status worker
-worker.list=jkstatus
-worker.jkstatus.type=status
-
-# Associate real workers with virtual LoadBalancer worker
-
-worker.jkstatus.balance_workers=worker1
-
+<br/>Note: Try to verify the worker1 and worker2 ajp1.3 port numbers from the server.xml files from both culster1 nad cluster2<br/>
+<br/>
+#Set properties for worker19 (ajp13)<br/>
+worker.list=lb<br/>
+<br/>
+worker.worker1.host=localhost<br/>
+worker.worker1.port=8009<br/>
+worker.worker1.type=ajp13<br/>
+#worker.worker1.lbfactor=1<br/>
+<br/>
+worker.worker2.host=localhost<br/>
+worker.worker2.port=8109<br/>
+worker.worker2.type=ajp13<br/>
+<br/>
+worker.lb.type=lb<br/>
+worker.lb.balance_workers=worker1,worker2<br/>
+<br/>
+#status worker<br/>
+worker.list=jkstatus<br/>
+worker.jkstatus.type=status<br/>
+<br/>
+#Associate real workers with virtual LoadBalancer worker<br/>
+<br/>
+worker.jkstatus.balance_workers=worker1<br/>
+<br/>
 
 
 
@@ -136,16 +138,16 @@ set CATALINA_HOME and CATALINA_BASE  inside the catalina.bat as mentioned.
 Note: Try to set these variables at the starting, because we need to override with the existing environment variables if any.
 
 E:\cluster_apache\cluster1\bin\ catalina.bat 
-
- set "CATALINA_HOME=E:\cluster_apache\cluster1"
-set "CATALINA_BASE=E:\cluster_apache\cluster1"
+<br/>
+set "CATALINA_HOME=E:\cluster_apache\cluster1"<br/>
+set "CATALINA_BASE=E:\cluster_apache\cluster1"<br/>
 ![](https://github.com/techbhaskar/images/blob/master/t15.png)
  
 
 E:\cluster_apache\cluster2\bin\ catalina.bat
-
-set "CATALINA_HOME=E:\cluster_apache\cluster2"
-set "CATALINA_BASE=E:\cluster_apache\cluster2"
+<br/>
+set "CATALINA_HOME=E:\cluster_apache\cluster2"<br/>
+set "CATALINA_BASE=E:\cluster_apache\cluster2"<br/>
 ![](https://github.com/techbhaskar/images/blob/master/t16.png)
 
 Start the tomcat server from the cmd (cluster1)
