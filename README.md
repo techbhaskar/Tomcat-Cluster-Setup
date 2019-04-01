@@ -5,13 +5,12 @@ Apache Http Server
 Download the Apache Http Server 2.4 or 2.2 by using the below link
 Apache 2.4 is available under 
 https://httpd.apache.org/download.cgi
-
- 
+![](https://github.com/techbhaskar/images/blob/master/t1.png)
 For other previous versions like 2.2 available under 
 https://archive.apache.org/dist/httpd/#releases 
- 
+![](https://github.com/techbhaskar/images/blob/master/t2.png)
 after downloading extracts it to C:/Apache
- 
+![](https://github.com/techbhaskar/images/blob/master/t3.png)
 Add mod_jk.so
 Add mod_jk.so file to the modules folder  under  C:\Apache\modules
 Download the required 32bit or 64bit mod_jk.so file from the following links
@@ -43,54 +42,53 @@ https://tomcat.apache.org/download-90.cgi#9.0.17
 For Tomcat 8.5.x
 https://tomcat.apache.org/download-80.cgi#8.5.39
 After downloading extract it to required folder and copy paste the same into another name, Here we named it as cluster1 and cluster2
- 
- 
- 
+![](https://github.com/techbhaskar/images/blob/master/t4.png)
+![](https://github.com/techbhaskar/images/blob/master/t5.png)
+![](https://github.com/techbhaskar/images/blob/master/t6.png)
 Modify server.xml
 Now modify the server.xml file under 
 cluster1\conf\server.xml  and 
-
 cluster2\conf\server.xml
 
 Try to make sure that you have a different port number for Server in both clusters
 
 cluster1\conf\server.xml  
-
+![](https://github.com/techbhaskar/images/blob/master/t7.png)
 
  
 
 cluster2\conf\server.xml
- 
+![](https://github.com/techbhaskar/images/blob/master/t8.png)
 
 Try to make sure that you have different port number for HTTP Connectors in both clusters
 
 cluster1\conf\server.xml  
-
+![](https://github.com/techbhaskar/images/blob/master/t9.png)
  
 
 cluster2\conf\server.xml
-
+![](https://github.com/techbhaskar/images/blob/master/t10.png)
  
 
 And also for AJP 1.3 Connector ports as well
 
 cluster1\conf\server.xml  
-
+![](https://github.com/techbhaskar/images/blob/master/t11.png)
  
 
 Cluster2\conf\server.xml  
-
+![](https://github.com/techbhaskar/images/blob/master/t12.png)
  
 
 
 After this add the “jvmRoute” attribute to the Engine tag in the server.xml
 cluster1\conf\server.xml
 <Engine name="Catalina" defaultHost="localhost" jvmRoute="worker1">
- 
+ ![](https://github.com/techbhaskar/images/blob/master/t13.png)
 
 Cluster2\conf\server.xml
 <Engine name="Catalina" defaultHost="localhost" jvmRoute="worker2">
- 
+ ![](https://github.com/techbhaskar/images/blob/master/t14.png)
 
 
 
@@ -141,23 +139,23 @@ E:\cluster_apache\cluster1\bin\ catalina.bat
 
  set "CATALINA_HOME=E:\cluster_apache\cluster1"
 set "CATALINA_BASE=E:\cluster_apache\cluster1"
-
+![](https://github.com/techbhaskar/images/blob/master/t15.png)
  
 
 E:\cluster_apache\cluster2\bin\ catalina.bat
 
 set "CATALINA_HOME=E:\cluster_apache\cluster2"
 set "CATALINA_BASE=E:\cluster_apache\cluster2"
- 
+![](https://github.com/techbhaskar/images/blob/master/t16.png)
 
 Start the tomcat server from the cmd (cluster1)
 catalina.bat run
- 
+![](https://github.com/techbhaskar/images/blob/master/t17.png)
  
 
 Start the tomcat server from the cmd (cluster2)
 catalina.bat run
-
+![](https://github.com/techbhaskar/images/blob/master/t18.png)
  
  
 
