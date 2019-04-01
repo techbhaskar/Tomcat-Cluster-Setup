@@ -1,4 +1,4 @@
-# Tomcat-CLuster-Setup
+# Tomcat-Cluster-Setup
 This will give you a step by step approach towards creating a cluster enviorment fromn your tomcat server
 
 Apache Http Server
