@@ -35,7 +35,7 @@ JkMount jkstatus<br/>
 Order deny, allow<br/>
 Deny from all<br/>
 Allow from 127.0.0.1<br/>
-</Location><br/>
+ < / Location> <br/>
 Download Tomcat server
 Now we have to create two web servers in our local system try to download the Tomcat8.5 or Tomcat 9.0 from the below links.
 For Tomcat9.0.x
